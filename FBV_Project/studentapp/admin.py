@@ -6,4 +6,5 @@ from studentapp.models import Student
 class StudentAdmin(admin.ModelAdmin):
     list_display = ['id','sname','marks','email','address']
 
+# register our model name with admin site
 admin.site.register(Student, StudentAdmin)
