@@ -1,0 +1,57 @@
+
+{% extends 'studentapp/base.html' %}
+
+{% block  title %}
+    Student List
+{% endblock %}
+
+ {% block  body %}
+    <h1>Today Data and Time is : <b style="color: red;">{{ present_time }}</b></h1>
+    {% if student_list %}
+       <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sname</th>
+                <th>Marks</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+
+                <th>Actions</th>
+            </tr>
+          </thead>
+       {% for student  in student_list %}
+          <tbody>
+             <tr>
+                 <td><a href="{% url 'student_detail' student.id %}">
+                       {{ student.id  }} </a></td>
+                 <td>{{ student.sname  }}</td>
+                 <td>{{ student.marks  }}</td>
+                 <td>{{ student.email  }}</td>
+                 <td>{{ student.mobile  }}</td>
+                 <td>{{ student.address  }}</td>
+
+                 <td>
+                     <a href="{% url 'student_update' student.id %}"
+                        class="btn btn-success btn-sm">update</a>
+
+                     <a href="{% url  'student_delete' student.id %}"
+                        class="btn btn-danger btn-sm">delete</a>
+                 </td>
+             </tr>
+          </tbody>
+       {% endfor %}
+
+       </table>
+    {% else %}
+       <h2>Student data not available to display</h2>
+    {% endif %}
+    <h1 class="text-center">
+        <a href="{% url 'student_create' %}" class="btn btn-primary btn-lg"> Create New Student</a>
+    </h1>
+
+     {% include 'studentapp/childTamplate.html' %}
+
+
+ {% endblock %}

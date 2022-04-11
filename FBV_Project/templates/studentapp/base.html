@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <style>
+       #base_h1{
+           color: white;
+           background-color: green;
+           padding: 10px;
+           {#text-align: center;#}
+       }
+
+       #myfooter{
+           background-color: green;
+           color: white;
+           text-align: center;
+           padding: 10px;
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+       }
+
+       ol{
+           margin-bottom: 100px;
+       }
+   </style>
+</head>
+<body>
+
+  <div class="container">
+     <h1 id="base_h1">Function Based Views CURD Operations</h1>
+
+     {% block  body %}
+
+     {% endblock %}
+
+   </div>
+
+<footer id="myfooter" style="margin-top: 100px;">
+    Copy rights reserved &copy; Naresh IT
+</footer>
+
+</body>
+</html>

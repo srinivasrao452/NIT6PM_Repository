@@ -1,0 +1,17 @@
+
+{% extends  'studentapp/base.html' %}
+
+{% block  title %}
+    Student Create
+{% endblock %}
+
+{% block  body %}
+    <form method="POST">
+       {% csrf_token %}
+       <table>
+           {{ form }}
+       </table>
+       <input  type="submit" value="Create" class="btn btn-success"
+               style="margin-left: 100px;">
+    </form>
+{% endblock %}

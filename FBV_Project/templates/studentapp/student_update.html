@@ -1,0 +1,46 @@
+
+{% extends  'studentapp/base.html' %}
+
+{% block  title %}
+    Student Update
+{% endblock %}
+
+{% block  body %}
+    {% if student %}
+       <form method="POST">
+           {% csrf_token %}
+           <table>
+               <tr>
+                   <th>Sname:</th>
+                   <td><input type="text"  name="sname" value="{{ student.sname }}"></td>
+               </tr>
+               <tr>
+                   <th>Marks:</th>
+                   <td><input type="number"  name="marks" value="{{ student.marks }}"></td>
+               </tr>
+               <tr>
+                   <th>Email:</th>
+                   <td><input type="email"  name="email" value="{{ student.email }}"></td>
+               </tr>
+               <tr>
+                   <th>Mobile:</th>
+                   <td><input type="number"  name="mobile" value="{{ student.mobile }}"></td>
+               </tr>
+               <tr>
+                   <th>Address:</th>
+                   <td><input type="text"  name="address" value="{{ student.address }}"></td>
+               </tr>
+               <tr>
+                   <th> </th>
+                   <td> <input type="submit" value="Update" class="btn btn-success"
+                               style="margin-left: 50px;"></td>
+               </tr>
+
+           </table>
+
+       </form>
+    {% else %}
+       <h1>{{ error }}</h1>
+    {% endif %}
+
+{% endblock %}
